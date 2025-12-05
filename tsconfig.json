@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "@tsconfig/node24/tsconfig.json",
+    "@tsconfig/strictest/tsconfig.json"
+  ],
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "./dist",
+    "verbatimModuleSyntax": true,
+    "module": "esnext",
+    "moduleResolution": "bundler"
+  },
+  "include": ["*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

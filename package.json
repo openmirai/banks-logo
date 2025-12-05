@@ -1,0 +1,55 @@
+{
+  "name": "@openmirai/banks-logo",
+  "version": "0.0.0",
+  "description": "A collection of Thai banks logos and metadata",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "icons"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openmirai/banks-logo.git"
+  },
+  "scripts": {
+    "lint": "biome check",
+    "lint:fix": "biome check --fix",
+    "build": "bun build ./index.ts --outdir ./dist --target node --format esm --external all --minify && bun --bun tsc --declaration --emitDeclarationOnly --outDir ./dist",
+    "prepack": "bun run build",
+    "release": "release-it",
+    "prepare": "husky"
+  },
+  "keywords": [
+    "thai",
+    "thailand",
+    "bank",
+    "logo",
+    "thai-banks-logo",
+    "โลโก้ธนาคาร",
+    "ธนาคาร",
+    "ไทย"
+  ],
+  "devDependencies": {
+    "@commitlint/config-conventional": "^20.2.0",
+    "@tsconfig/node24": "^24.0.3",
+    "@tsconfig/strictest": "^2.0.8",
+    "biome": "^0.3.3",
+    "husky": "^9.1.7",
+    "release-it": "^17.6.0",
+    "typescript": "^5.5.3"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}

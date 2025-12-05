@@ -1,0 +1,19 @@
+{
+  "git": {
+    "commitMessage": "chore: release ${version}",
+    "tagName": "v${version}",
+    "requireCleanWorkingDir": false
+  },
+  "npm": {
+    "publish": true,
+    "skipChecks": true,
+    "registry": "https://npm.pkg.github.com"
+  },
+  "hooks": {
+    "before:bump": ["bun run lint"],
+    "after:bump": ["bun run build"],
+    "after:release": [
+      "echo Successfully released ${name} v${version} to ${repo.repository}"
+    ]
+  }
+}
