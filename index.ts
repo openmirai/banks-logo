@@ -1,4 +1,4 @@
-import type { BankList } from "./types";
+import type { Bank, BankList, BankName } from "./types";
 
 export const bankLists: BankList = {
   BAY: {
@@ -126,4 +126,29 @@ export const bankLists: BankList = {
   },
 };
 
-export type { Bank, BankName, BankList } from "./types";
+// Helper functions to find banks by ID
+export function findBankById(id: string): Bank | undefined {
+  return Object.values(bankLists).find((bank) => bank.id === id);
+}
+
+export function findBankSymbolById(id: string): string | undefined {
+  const bank = findBankById(id);
+  return bank?.symbol;
+}
+
+export function findBankNameById(id: string): BankName | undefined {
+  const bank = findBankById(id);
+  return bank?.name;
+}
+
+// Get all banks as an array
+export function getAllBanks(): Array<Bank> {
+  return Object.values(bankLists);
+}
+
+// Get all bank IDs
+export function getAllBankIds(): Array<string> {
+  return Object.values(bankLists).map((bank) => bank.id);
+}
+
+export type { Bank, BankList, BankName } from "./types";
